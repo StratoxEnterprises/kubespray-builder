@@ -14,14 +14,15 @@ RUN pip3 install -r requirements.txt \
     && install -m 755 yq /usr/local/bin/yq \
     && wget https://storage.googleapis.com/kubernetes-release/release/v1.25.0/bin/linux/amd64/kubectl -O kubectl \
     && install -m 755 kubectl /usr/local/bin/kubectl \
-    && wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.10.0/kustomize_v3.10.0_linux_amd64.tar.gz -O kustomize-install.tar.gz \
+    && wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.1.1/kustomize_v5.1.1_linux_amd64.tar.gz -O kustomize-install.tar.gz \
     && tar -xf kustomize-install.tar.gz \
     && rm kustomize-install.tar.gz \
     && install -m 755 kustomize /usr/local/bin/kustomize \
     && wget https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -O awscliv2.zip \
     && unzip awscliv2.zip \
     && rm awscliv2.zip \
-    && ./aws/install
-
-
- 
+    && ./aws/install \
+    && wget https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz -O helm-v3.12.3-linux-amd64.tar.gz \
+    && tar -xf helm-v3.12.3-linux-amd64.tar.gz \
+    && rm helm-v3.12.3-linux-amd64.tar.gz \
+    && install -m 755 linux-amd64/helm /usr/local/bin/helm 
